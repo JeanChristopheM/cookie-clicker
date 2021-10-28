@@ -70,7 +70,7 @@ function App() {
       </header>
       <main className={'main'}>
         <figure>
-          <img id="cookie" src="/media/cookie.png" alt="Cookie" onClick={cookieClick} />
+          <img id="cookie" src="./media/cookie.png" alt="Cookie" onClick={cookieClick} />
         </figure>
         <div className="main__shop">
           <h2>Shop</h2>
