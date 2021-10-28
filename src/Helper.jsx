@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Helper({cookies, currentHelper, handleBuy, currentPrice}) {
+function Helper({state, handleBuy}) {
     let available = false;
-    if(cookies >= currentPrice) {
+    if(state.count >= state.cookiePerSecondPrice) {
         available = true;
     } else {
         available = false;
@@ -10,8 +10,8 @@ function Helper({cookies, currentHelper, handleBuy, currentPrice}) {
     return (
         <div className={'main__shop__multiplier'}>
             <h4>Helper</h4>
-            <p><span>{currentHelper + 1}</span>c/s</p>
-            <p>Price: {currentPrice}cookies</p>
+            <p><span>{state.cookiePerSecond + 1}</span>c/s</p>
+            <p>Price: {state.cookiePerSecondPrice}cookies</p>
             {available &&
             <button type="button" className={"allowed"} onClick={handleBuy}>BUY</button>
             }

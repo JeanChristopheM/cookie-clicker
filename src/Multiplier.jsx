@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Multiplier({cookies, currentMultiplier, handleBuy, currentPrice}) {
+function Multiplier({state, handleBuy}) {
     let available = false;
-    if(cookies >= currentPrice) {
+    if(state.count >= state.multiplierPrice) {
         available = true;
     } else {
         available = false;
@@ -10,8 +10,8 @@ function Multiplier({cookies, currentMultiplier, handleBuy, currentPrice}) {
     return (
         <div className={'main__shop__multiplier'}>
             <h4>Multiplier</h4>
-            <p>x<span>{currentMultiplier + 1}</span></p>
-            <p>Price: {currentPrice}cookies</p>
+            <p>x<span>{state.multiplier + 1}</span></p>
+            <p>Price: {state.multiplierPrice}cookies</p>
             {available &&
             <button type="button" className={"allowed"} onClick={handleBuy}>BUY</button>
             }

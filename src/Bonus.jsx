@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Bonus({cookies, handleBuy, currentPrice, currentState}) {
+function Bonus({state, handleBuy}) {
     let available = false;
-    if(cookies >= currentPrice) {
+    if(state.count >= state.bonusPrice && !state.bonusState) {
         available = true;
     } else {
         available = false;
@@ -11,11 +11,11 @@ function Bonus({cookies, handleBuy, currentPrice, currentState}) {
         <div className={'main__shop__multiplier'}>
             <h4>Bonus</h4>
             <p>200%cookies/click for two second</p>
-            <p>Price: {currentPrice}cookies</p>
-            {available && !currentState &&
+            <p>Price: {state.bonusPrice}cookies</p>
+            {available &&
             <button type="button" className={"allowed"} onClick={handleBuy}>BUY</button>
             }
-            {(!available || currentState) &&
+            {!available &&
             <button type="button" className={"forbidden"}>BUY</button>
             }
         </div>
